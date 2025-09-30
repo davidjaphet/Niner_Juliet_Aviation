@@ -1,0 +1,45 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.fleet-card:hover .fleet-overlay {
+  opacity: 1;
+}
+
+.fleet-overlay {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.testimonial-card {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link:hover {
+  color: #0D6EFD;
+}
+
+.mobile-menu {
+  transition: all 0.3s ease;
+}
