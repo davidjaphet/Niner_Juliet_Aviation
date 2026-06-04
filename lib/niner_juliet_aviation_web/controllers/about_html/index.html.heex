@@ -1,39 +1,185 @@
-<section class="py-20 bg-white">
+<%# Hero Banner %>
+<div class="about-hero-bg min-h-[40vh] flex items-center justify-center text-white relative">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 hero-title">About Us</h1>
+    <p class="text-white/70 text-lg hero-subtitle">The people and purpose behind Niner Juliet Logistics</p>
+  </div>
+</div>
+
+<%# Our Story %>
+<section class="py-20 bg-white reveal-section">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Niner Juliet Logistics</h1>
-      <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
-    </div>
-    
-    <div class="flex flex-col lg:flex-row items-center gap-12">
-      <div class="lg:w-1/2">
-        <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd" alt="Kenneth Kaunda International Airport" class="rounded-lg shadow-xl w-full">
+    <div class="flex flex-col lg:flex-row items-center gap-14">
+      <div class="lg:w-1/2 relative group">
+        <img
+          src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd"
+          alt="Kenneth Kaunda International Airport"
+          class="rounded-2xl shadow-xl w-full transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+        <div class="absolute -bottom-5 -right-5 bg-blue-600 text-white rounded-2xl px-6 py-4 shadow-lg hidden md:block">
+          <div class="text-3xl font-bold">25+</div>
+          <div class="text-sm text-blue-200">Years in Aviation</div>
+        </div>
       </div>
-      
+
       <div class="lg:w-1/2">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Story</h2>
-        <p class="text-gray-600 mb-6">Founded by aviation veteran Robert Stacey with over 25 years of experience in African aviation, Niner Juliet Logistics (9JL) has grown to become Zambia's trusted partner for all aviation logistics needs. Based at Kenneth Kaunda International Airport's private hangars, we combine global standards with local expertise.</p>
-        
-        <div class="mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Our Mission</h3>
-          <p class="text-gray-600">To provide reliable, efficient, and accessible aviation logistics across Zambia and Africa.</p>
+        <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full mb-5">
+          <i class="fas fa-history"></i> Our Story
         </div>
-        
-        <div class="mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Our Vision</h3>
-          <p class="text-gray-600">Be Zambia's trusted aviation partner for all cargo and logistics needs.</p>
-        </div>
-        
-        <div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Core Values</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Safety</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Simplicity</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Trust</span>
-            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Innovation</span>
+        <h2 class="text-3xl font-bold text-gray-800 mb-5">Built on Experience, Driven by Purpose</h2>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          Founded by aviation veteran Robert Stacey with over 25 years of experience in African aviation, Niner Juliet Logistics (9JL) has grown to become Zambia's trusted partner for all aviation logistics needs. Based at Kenneth Kaunda International Airport's private hangars, we combine global standards with local expertise.
+        </p>
+
+        <%# Mission & Vision tabs %>
+        <div x-data="{ tab: 'mission' }" class="border border-gray-200 rounded-2xl overflow-hidden">
+          <div class="flex border-b border-gray-200">
+            <button
+              onclick="switchTab(this, 'mission')"
+              data-tab="mission"
+              class="tab-btn flex-1 py-3 text-sm font-semibold bg-blue-600 text-white transition-colors">
+              Our Mission
+            </button>
+            <button
+              onclick="switchTab(this, 'vision')"
+              data-tab="vision"
+              class="tab-btn flex-1 py-3 text-sm font-semibold bg-white text-gray-600 hover:bg-gray-50 transition-colors">
+              Our Vision
+            </button>
+            <button
+              onclick="switchTab(this, 'values')"
+              data-tab="values"
+              class="tab-btn flex-1 py-3 text-sm font-semibold bg-white text-gray-600 hover:bg-gray-50 transition-colors">
+              Core Values
+            </button>
+          </div>
+          <div class="p-6">
+            <div id="tab-mission" class="tab-content">
+              <p class="text-gray-600">To provide reliable, efficient, and accessible aviation logistics across Zambia and Africa — connecting communities and businesses through the power of flight.</p>
+            </div>
+            <div id="tab-vision" class="tab-content hidden">
+              <p class="text-gray-600">To be Zambia's most trusted aviation partner, setting the standard for safety, service, and innovation across the continent.</p>
+            </div>
+            <div id="tab-values" class="tab-content hidden">
+              <div class="flex flex-wrap gap-3">
+                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i class="fas fa-shield-alt text-xs"></i> Safety</span>
+                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i class="fas fa-bolt text-xs"></i> Simplicity</span>
+                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i class="fas fa-handshake text-xs"></i> Trust</span>
+                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium flex items-center gap-2"><i class="fas fa-lightbulb text-xs"></i> Innovation</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<%# Stats %>
+<section class="bg-blue-700 py-14 reveal-section">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+      <div>
+        <div class="text-4xl font-bold mb-1"><span class="counter" data-target="25">0</span>+</div>
+        <p class="text-blue-200 text-sm uppercase tracking-wide">Years Experience</p>
+      </div>
+      <div>
+        <div class="text-4xl font-bold mb-1"><span class="counter" data-target="500">0</span>+</div>
+        <p class="text-blue-200 text-sm uppercase tracking-wide">Flights Completed</p>
+      </div>
+      <div>
+        <div class="text-4xl font-bold mb-1"><span class="counter" data-target="18">0</span></div>
+        <p class="text-blue-200 text-sm uppercase tracking-wide">African Countries</p>
+      </div>
+      <div>
+        <div class="text-4xl font-bold mb-1"><span class="counter" data-target="99">0</span>%</div>
+        <p class="text-blue-200 text-sm uppercase tracking-wide">On-Time Rate</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# Timeline %>
+<section class="py-20 bg-gray-50 reveal-section">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Journey</h2>
+      <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto">
+      <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-blue-200 hidden md:block"></div>
+      <div class="space-y-10">
+
+        <div class="timeline-item flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2 md:text-right">
+            <h3 class="font-bold text-gray-800 text-lg">Company Founded</h3>
+            <p class="text-gray-500 text-sm">Robert Stacey establishes 9JL at Kenneth Kaunda International Airport.</p>
+          </div>
+          <div class="timeline-dot w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 z-10 shadow-lg">
+            '99
+          </div>
+          <div class="md:w-1/2"></div>
+        </div>
+
+        <div class="timeline-item flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2"></div>
+          <div class="timeline-dot w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 z-10 shadow-lg">
+            '07
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="font-bold text-gray-800 text-lg">Pan-African Expansion</h3>
+            <p class="text-gray-500 text-sm">Launched cargo routes across 10 African countries.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2 md:text-right">
+            <h3 class="font-bold text-gray-800 text-lg">KKIA Certification</h3>
+            <p class="text-gray-500 text-sm">Received full certification from Kenneth Kaunda International Airport authorities.</p>
+          </div>
+          <div class="timeline-dot w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 z-10 shadow-lg">
+            '14
+          </div>
+          <div class="md:w-1/2"></div>
+        </div>
+
+        <div class="timeline-item flex flex-col md:flex-row items-center gap-6">
+          <div class="md:w-1/2"></div>
+          <div class="timeline-dot w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 z-10 shadow-lg">
+            Now
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="font-bold text-gray-800 text-lg">18 Countries & Growing</h3>
+            <p class="text-gray-500 text-sm">Operating across 18 African nations with a 99% on-time delivery rate.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# CTA %>
+<section class="bg-blue-700 py-16 reveal-section">
+  <div class="container mx-auto px-4 text-center text-white">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to work with us?</h2>
+    <p class="text-blue-200 mb-8 text-lg">Let's talk about how we can support your aviation needs.</p>
+    <a href="/contact" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+      <i class="fas fa-envelope"></i> Get in Touch
+    </a>
+  </div>
+</section>
+
+<script>
+  function switchTab(btn, tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.remove('bg-blue-600', 'text-white');
+      b.classList.add('bg-white', 'text-gray-600');
+    });
+    btn.classList.add('bg-blue-600', 'text-white');
+    btn.classList.remove('bg-white', 'text-gray-600');
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+    document.getElementById('tab-' + tab).classList.remove('hidden');
+  }
+</script>

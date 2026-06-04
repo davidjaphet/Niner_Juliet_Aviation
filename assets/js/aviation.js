@@ -1,67 +1,98 @@
-// Mobile Menu Toggle - Use event delegation for Phoenix compatibility
-document.addEventListener('DOMContentLoaded', function() {
-  initializeMobileMenu();
-});
+document.addEventListener('DOMContentLoaded', initAll);
+window.addEventListener('phx:page-loading-stop', initAll);
 
-// Re-initialize on Phoenix page loads
-window.addEventListener('phx:page-loading-stop', function() {
+function initAll() {
   initializeMobileMenu();
-});
-
-function initializeMobileMenu() {
-  const mobileMenuButton = document.getElementById('mobileMenuButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-  
-  if (mobileMenuButton && mobileMenu) {
-    // Remove existing listeners
-    mobileMenuButton.replaceWith(mobileMenuButton.cloneNode(true));
-    const newButton = document.getElementById('mobileMenuButton');
-    
-    newButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
+  initializeSmoothScrolling();
+  initScrollReveal();
+  initCounters();
+  initTimeline();
 }
 
-// Smooth scrolling for navigation links
+function initializeMobileMenu() {
+  const btn = document.getElementById('mobileMenuButton');
+  const menu = document.getElementById('mobileMenu');
+  if (!btn || !menu) return;
+  const newBtn = btn.cloneNode(true);
+  btn.replaceWith(newBtn);
+  newBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    menu.classList.toggle('hidden');
+  });
+}
+
 function initializeSmoothScrolling() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      
+    anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-        }
-        
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
-        });
-      }
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+      document.getElementById('mobileMenu')?.classList.add('hidden');
+      window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
     });
   });
 }
 
-// Initialize smooth scrolling
-document.addEventListener('DOMContentLoaded', initializeSmoothScrolling);
-window.addEventListener('phx:page-loading-stop', initializeSmoothScrolling);
+function initScrollReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal-section').forEach(s => observer.observe(s));
+}
 
-// Contact form submission
+function initTimeline() {
+  const items = document.querySelectorAll('.timeline-item');
+  if (!items.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('revealed'), i * 150);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  items.forEach(item => observer.observe(item));
+}
+
+function initCounters() {
+  const counters = document.querySelectorAll('.counter');
+  if (!counters.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = +el.dataset.target;
+      const step = target / (1500 / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target;
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current);
+        }
+      }, 16);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+}
+
+// Contact form
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    
     alert(`Thank you, ${name}! Your message has been received. We'll contact you at ${email} soon.`);
     contactForm.reset();
   });

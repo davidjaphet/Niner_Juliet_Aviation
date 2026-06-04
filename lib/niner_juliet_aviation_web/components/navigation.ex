@@ -19,7 +19,7 @@ defmodule NinerJulietAviationWeb.Navigation do
             <a href="/services" class="nav-link text-gray-700 hover:text-blue-600 transition">Services</a>
             <a href="/fleet" class="nav-link text-gray-700 hover:text-blue-600 transition">Our Fleet</a>
             <a href="/contact" class="nav-link text-gray-700 hover:text-blue-600 transition">Contact</a>
-            <a href="tel:+260965291772" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center">
+            <a href="/call" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center transition">
               <i class="fas fa-phone mr-2"></i> Call Us
             </a>
           </div>
@@ -37,7 +37,7 @@ defmodule NinerJulietAviationWeb.Navigation do
           <a href="/services" class="block py-2 text-gray-700 hover:text-blue-600" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Services</a>
           <a href="/fleet" class="block py-2 text-gray-700 hover:text-blue-600" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Our Fleet</a>
           <a href="/contact" class="block py-2 text-gray-700 hover:text-blue-600" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Contact</a>
-          <a href="tel:+260965291772" class="block bg-blue-600 text-white py-2 px-4 rounded-full text-center my-2">
+          <a href="/call" class="block bg-blue-600 text-white py-2 px-4 rounded-full text-center my-2">
             <i class="fas fa-phone mr-2"></i> Call Us
           </a>
         </div>

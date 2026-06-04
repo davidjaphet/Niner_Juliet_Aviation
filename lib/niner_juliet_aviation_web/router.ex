@@ -22,6 +22,7 @@ defmodule NinerJulietAviationWeb.Router do
     get "/services", ServicesController, :index
     get "/fleet", FleetController, :index
     get "/contact", ContactController, :index
+    get "/call", CallController, :index
   end
 
   # Other scopes may use custom stacks.

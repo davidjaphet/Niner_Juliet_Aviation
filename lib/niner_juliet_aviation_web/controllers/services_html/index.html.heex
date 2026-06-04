@@ -1,44 +1,161 @@
-<section class="py-20 bg-gray-100">
+<%# Hero %>
+<div class="services-hero-bg min-h-[40vh] flex items-center justify-center text-white relative">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 hero-title">Our Services</h1>
+    <p class="text-white/70 text-lg hero-subtitle">Comprehensive aviation solutions tailored to your needs</p>
+  </div>
+</div>
+
+<%# Service Cards %>
+<section class="py-20 bg-gray-50 reveal-section">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive aviation solutions tailored to your specific needs</p>
-      <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">What We Offer</h2>
+      <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
     </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-        <div class="h-48 bg-blue-600 flex items-center justify-center">
-          <i class="fas fa-box-open text-white text-6xl"></i>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <%# Card 1 %>
+      <div class="service-card group bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+        <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          <i class="fas fa-box-open text-white text-6xl group-hover:scale-110 transition-transform duration-300"></i>
         </div>
         <div class="p-6">
-          <h2 class="text-xl font-bold text-gray-800 mb-3">Air Cargo Services</h2>
-          <p class="text-gray-600 mb-4">Safe, timely, and efficient international cargo logistics with customs clearance support. We handle everything from perishables to oversized equipment.</p>
-          <a href="/contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition">Request This Service</a>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Air Cargo Services</h3>
+          <p class="text-gray-500 text-sm mb-4">Safe, timely, and efficient international cargo logistics with customs clearance support. We handle everything from perishables to oversized equipment.</p>
+          <div class="service-details hidden text-gray-500 text-sm mb-4 space-y-2">
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Customs clearance assistance</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Temperature-controlled freight</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Oversized & heavy cargo</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Door-to-door tracking</div>
+          </div>
+          <div class="flex items-center justify-between">
+            <a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105">
+              Request <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+            <button onclick="toggleDetails(this)" class="text-blue-600 text-sm font-medium hover:underline">
+              More info <i class="fas fa-chevron-down ml-1 transition-transform duration-200"></i>
+            </button>
+          </div>
         </div>
       </div>
-      
-      <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-        <div class="h-48 bg-blue-600 flex items-center justify-center">
-          <i class="fas fa-plane text-white text-6xl"></i>
+
+      <%# Card 2 %>
+      <div class="service-card group bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+        <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          <i class="fas fa-plane text-white text-6xl group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300"></i>
         </div>
         <div class="p-6">
-          <h2 class="text-xl font-bold text-gray-800 mb-3">Charter Passenger Flights</h2>
-          <p class="text-gray-600 mb-4">Private and business transport with flexible scheduling. Enjoy personalized service, privacy, and direct routing to your destination.</p>
-          <a href="/contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition">Request This Service</a>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Charter Passenger Flights</h3>
+          <p class="text-gray-500 text-sm mb-4">Private and business transport with flexible scheduling. Enjoy personalized service, privacy, and direct routing to your destination.</p>
+          <div class="service-details hidden text-gray-500 text-sm mb-4 space-y-2">
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Flexible departure times</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Private cabin experience</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Direct routing, no layovers</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Corporate & VIP packages</div>
+          </div>
+          <div class="flex items-center justify-between">
+            <a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105">
+              Request <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+            <button onclick="toggleDetails(this)" class="text-blue-600 text-sm font-medium hover:underline">
+              More info <i class="fas fa-chevron-down ml-1 transition-transform duration-200"></i>
+            </button>
+          </div>
         </div>
       </div>
-      
-      <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
-        <div class="h-48 bg-blue-600 flex items-center justify-center">
-          <i class="fas fa-tools text-white text-6xl"></i>
+
+      <%# Card 3 %>
+      <div class="service-card group bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+        <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          <i class="fas fa-tools text-white text-6xl group-hover:scale-110 transition-transform duration-300"></i>
         </div>
         <div class="p-6">
-          <h2 class="text-xl font-bold text-gray-800 mb-3">Aviation Construction & Technical Services</h2>
-          <p class="text-gray-600 mb-4">Hangar setups, maintenance facilities, and technical support. We design and implement aviation infrastructure solutions.</p>
-          <a href="/contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition">Request This Service</a>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Aviation Construction & Technical Services</h3>
+          <p class="text-gray-500 text-sm mb-4">Hangar setups, maintenance facilities, and technical support. We design and implement aviation infrastructure solutions.</p>
+          <div class="service-details hidden text-gray-500 text-sm mb-4 space-y-2">
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Hangar design & construction</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Aircraft maintenance support</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Runway & apron works</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check text-blue-500"></i> Safety compliance consulting</div>
+          </div>
+          <div class="flex items-center justify-between">
+            <a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105">
+              Request <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+            <button onclick="toggleDetails(this)" class="text-blue-600 text-sm font-medium hover:underline">
+              More info <i class="fas fa-chevron-down ml-1 transition-transform duration-200"></i>
+            </button>
+          </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<%# Why Choose Us %>
+<section class="py-20 bg-white reveal-section">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose 9JL?</h2>
+      <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-blue-50 group-hover:bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+          <i class="fas fa-shield-alt text-blue-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
+        </div>
+        <h4 class="font-bold text-gray-800 mb-2">Safety First</h4>
+        <p class="text-gray-500 text-sm">Every operation meets KKIA and international safety standards.</p>
+      </div>
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-blue-50 group-hover:bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+          <i class="fas fa-clock text-blue-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
+        </div>
+        <h4 class="font-bold text-gray-800 mb-2">24/7 Operations</h4>
+        <p class="text-gray-500 text-sm">Round-the-clock support so your cargo never sleeps.</p>
+      </div>
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-blue-50 group-hover:bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+          <i class="fas fa-globe-africa text-blue-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
+        </div>
+        <h4 class="font-bold text-gray-800 mb-2">Pan-African Reach</h4>
+        <p class="text-gray-500 text-sm">Active routes across 18 countries on the continent.</p>
+      </div>
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-blue-50 group-hover:bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+          <i class="fas fa-headset text-blue-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
+        </div>
+        <h4 class="font-bold text-gray-800 mb-2">Dedicated Support</h4>
+        <p class="text-gray-500 text-sm">A personal point of contact for every client.</p>
       </div>
     </div>
   </div>
 </section>
+
+<%# CTA %>
+<section class="bg-blue-700 py-16 reveal-section">
+  <div class="container mx-auto px-4 text-center text-white">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Need a custom solution?</h2>
+    <p class="text-blue-200 mb-8 text-lg">Talk to our team and we'll design a service package just for you.</p>
+    <a href="/contact" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+      <i class="fas fa-envelope"></i> Get in Touch
+    </a>
+  </div>
+</section>
+
+<script>
+  function toggleDetails(btn) {
+    const card = btn.closest('.p-6');
+    const details = card.querySelector('.service-details');
+    const icon = btn.querySelector('i');
+    details.classList.toggle('hidden');
+    icon.classList.toggle('rotate-180');
+  }
+</script>

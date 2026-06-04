@@ -1,37 +1,138 @@
-<section class="py-20 bg-white">
+<%# Hero %>
+<div class="fleet-hero-bg min-h-[40vh] flex items-center justify-center text-white relative">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 hero-title">Our Fleet</h1>
+    <p class="text-white/70 text-lg hero-subtitle">Modern aircraft & state-of-the-art facilities at KKIA</p>
+  </div>
+</div>
+
+<%# Fleet Cards %>
+<section class="py-20 bg-gray-50 reveal-section">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Fleet & Facilities</h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Modern aircraft and state-of-the-art facilities at Kenneth Kaunda International Airport</p>
-      <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Aircraft</h2>
+      <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
     </div>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="relative rounded-lg overflow-hidden shadow-lg fleet-card">
-        <img src="https://images.unsplash.com/photo-1526281216101-e2f099559137" alt="Cargo Aircraft" class="w-full h-64 object-cover">
-        <div class="fleet-overlay absolute inset-0 bg-blue-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white">
-          <h2 class="text-xl font-bold mb-2">Cessna 208 Caravan</h2>
-          <ul class="text-sm mb-4">
-            <li class="mb-1"><i class="fas fa-box mr-2"></i> Cargo Capacity: 1,500 kg</li>
-            <li class="mb-1"><i class="fas fa-ruler-combined mr-2"></i> Range: 1,000 km</li>
-            <li class="mb-1"><i class="fas fa-users mr-2"></i> Passenger Option: 9 seats</li>
+
+      <%# Aircraft 1 %>
+      <div class="fleet-card group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+        <img
+          src="https://images.unsplash.com/photo-1526281216101-e2f099559137"
+          alt="Cessna 208 Caravan"
+          class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div class="fleet-overlay absolute inset-0 bg-blue-700/95 flex flex-col justify-center items-center p-6 text-white">
+          <i class="fas fa-plane text-white/20 text-8xl absolute -top-2 -right-2"></i>
+          <h3 class="text-xl font-bold mb-4">Cessna 208 Caravan</h3>
+          <ul class="text-sm space-y-2 w-full mb-4">
+            <li class="flex items-center gap-3"><i class="fas fa-box w-4"></i> Cargo: 1,500 kg</li>
+            <li class="flex items-center gap-3"><i class="fas fa-ruler-combined w-4"></i> Range: 1,000 km</li>
+            <li class="flex items-center gap-3"><i class="fas fa-users w-4"></i> Passengers: 9 seats</li>
+            <li class="flex items-center gap-3"><i class="fas fa-tachometer-alt w-4"></i> Cruise: 340 km/h</li>
           </ul>
-          <p>Ideal for short-haul cargo and passenger operations with excellent short-field performance.</p>
+          <p class="text-white/80 text-xs text-center">Ideal for short-haul cargo and passenger operations with excellent short-field performance.</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
+          <h3 class="text-white font-bold">Cessna 208 Caravan</h3>
+          <p class="text-white/70 text-xs">Hover for specs</p>
         </div>
       </div>
-      
-      <div class="relative rounded-lg overflow-hidden shadow-lg fleet-card">
-        <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd" alt="Passenger Aircraft" class="w-full h-64 object-cover">
-        <div class="fleet-overlay absolute inset-0 bg-blue-600 bg-opacity-90 flex flex-col justify-center items-center p-6 text-white">
-          <h2 class="text-xl font-bold mb-2">Beechcraft King Air 350</h2>
-          <ul class="text-sm mb-4">
-            <li class="mb-1"><i class="fas fa-users mr-2"></i> Passenger Capacity: 8-11</li>
-            <li class="mb-1"><i class="fas fa-ruler-combined mr-2"></i> Range: 3,000 km</li>
-            <li class="mb-1"><i class="fas fa-tachometer-alt mr-2"></i> Cruise Speed: 500 km/h</li>
+
+      <%# Aircraft 2 %>
+      <div class="fleet-card group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+        <img
+          src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd"
+          alt="Beechcraft King Air 350"
+          class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div class="fleet-overlay absolute inset-0 bg-blue-700/95 flex flex-col justify-center items-center p-6 text-white">
+          <i class="fas fa-plane text-white/20 text-8xl absolute -top-2 -right-2"></i>
+          <h3 class="text-xl font-bold mb-4">Beechcraft King Air 350</h3>
+          <ul class="text-sm space-y-2 w-full mb-4">
+            <li class="flex items-center gap-3"><i class="fas fa-users w-4"></i> Passengers: 8–11</li>
+            <li class="flex items-center gap-3"><i class="fas fa-ruler-combined w-4"></i> Range: 3,000 km</li>
+            <li class="flex items-center gap-3"><i class="fas fa-tachometer-alt w-4"></i> Cruise: 500 km/h</li>
+            <li class="flex items-center gap-3"><i class="fas fa-star w-4"></i> Class: Executive</li>
           </ul>
-          <p>Premium turboprop for executive transport with cabin comfort and reliability.</p>
+          <p class="text-white/80 text-xs text-center">Premium turboprop for executive transport with cabin comfort and outstanding reliability.</p>
         </div>
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
+          <h3 class="text-white font-bold">Beechcraft King Air 350</h3>
+          <p class="text-white/70 text-xs">Hover for specs</p>
+        </div>
+      </div>
+
+      <%# Charter Card %>
+      <div class="fleet-card group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+        <img
+          src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=800&q=80"
+          alt="Charter & Cargo Solutions"
+          class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div class="fleet-overlay absolute inset-0 bg-blue-700/95 flex flex-col justify-center items-center p-6 text-white">
+          <i class="fas fa-plane text-white/20 text-8xl absolute -top-2 -right-2"></i>
+          <h3 class="text-xl font-bold mb-4">Charter & Cargo Solutions</h3>
+          <ul class="text-sm space-y-2 w-full mb-4">
+            <li class="flex items-center gap-3"><i class="fas fa-globe-africa w-4"></i> Pan-African routes</li>
+            <li class="flex items-center gap-3"><i class="fas fa-clock w-4"></i> 24/7 availability</li>
+            <li class="flex items-center gap-3"><i class="fas fa-box w-4"></i> All freight types</li>
+            <li class="flex items-center gap-3"><i class="fas fa-handshake w-4"></i> Custom packages</li>
+          </ul>
+          <p class="text-white/80 text-xs text-center">Flexible charter and cargo solutions tailored to your schedule and destination.</p>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
+          <h3 class="text-white font-bold">Charter & Cargo Solutions</h3>
+          <p class="text-white/70 text-xs">Hover for details</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<%# Facilities %>
+<section class="py-20 bg-white reveal-section">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Facilities</h2>
+      <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+      <div class="group p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+        <div class="w-16 h-16 bg-blue-50 group-hover:bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+          <i class="fas fa-warehouse text-blue-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
+        </div>
+        <h4 class="font-bold text-gray-800 mb-2">Private Hangars</h4>
+        <p class="text-gray-500 text-sm">Secure, temperature-controlled storage at KKIA private hangars.</p>
+      </div>
+      <div class="group p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+        <div class="w-16 h-16 bg-blue-50 group-hover:bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+          <i class="fas fa-tools text-blue-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
+        </div>
+        <h4 class="font-bold text-gray-800 mb-2">Maintenance Bay</h4>
+        <p class="text-gray-500 text-sm">Full maintenance and inspection facilities for our entire fleet.</p>
+      </div>
+      <div class="group p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+        <div class="w-16 h-16 bg-blue-50 group-hover:bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+          <i class="fas fa-satellite-dish text-blue-600 group-hover:text-white text-2xl transition-colors duration-300"></i>
+        </div>
+        <h4 class="font-bold text-gray-800 mb-2">Operations Centre</h4>
+        <p class="text-gray-500 text-sm">24/7 monitoring, tracking, and dispatch coordination hub.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<%# CTA %>
+<section class="bg-blue-700 py-16 reveal-section">
+  <div class="container mx-auto px-4 text-center text-white">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Need a flight or freight solution?</h2>
+    <p class="text-blue-200 mb-8 text-lg">Our team is ready to match you with the right aircraft for the job.</p>
+    <a href="/contact" class="inline-flex items-center gap-2 bg-white text-blue-700 font-bold px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+      <i class="fas fa-paper-plane"></i> Request a Flight
+    </a>
   </div>
 </section>

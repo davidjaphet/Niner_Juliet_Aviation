@@ -1,72 +1,179 @@
-<section class="py-20 bg-white">
+<%# Hero %>
+<div class="contact-hero-bg min-h-[40vh] flex items-center justify-center text-white relative">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 text-center px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 hero-title">Contact Us</h1>
+    <p class="text-white/70 text-lg hero-subtitle">Ready to discuss your aviation needs? Let's talk.</p>
+  </div>
+</div>
+
+<%# Contact Info Cards %>
+<section class="py-12 bg-blue-700 reveal-section">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contact Us</h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Ready to discuss your aviation logistics needs? Get in touch today.</p>
-      <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+      <a href="https://maps.google.com/?q=Kenneth+Kaunda+International+Airport+Lusaka+Zambia" target="_blank"
+        class="group bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-white text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <div class="w-12 h-12 bg-white/20 group-hover:bg-white rounded-full flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
+          <i class="fas fa-map-marker-alt text-white group-hover:text-blue-700 transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-bold mb-1">Our Location</h3>
+        <p class="text-white/70 text-sm">Private Hangars, KKIA, Lusaka, Zambia</p>
+      </a>
+
+      <a href="tel:+260965291772"
+        class="group bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-white text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <div class="w-12 h-12 bg-white/20 group-hover:bg-white rounded-full flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
+          <i class="fas fa-phone-alt text-white group-hover:text-blue-700 transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-bold mb-1">Call Us</h3>
+        <p class="text-white/70 text-sm">+260 965 291 772</p>
+        <p class="text-white/70 text-sm">+260 977 123 456 (24/7)</p>
+      </a>
+
+      <a href="mailto:robert@ninerjuliet.com"
+        class="group bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-white text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+        <div class="w-12 h-12 bg-white/20 group-hover:bg-white rounded-full flex items-center justify-center mx-auto mb-3 transition-colors duration-300">
+          <i class="fas fa-envelope text-white group-hover:text-blue-700 transition-colors duration-300"></i>
+        </div>
+        <h3 class="font-bold mb-1">Email Us</h3>
+        <p class="text-white/70 text-sm">robert@ninerjuliet.com</p>
+        <p class="text-white/70 text-sm">operations@ninerjuliet.com</p>
+      </a>
+
     </div>
-    
+  </div>
+</section>
+
+<%# Form + Map %>
+<section class="py-20 bg-gray-50 reveal-section">
+  <div class="container mx-auto px-4">
     <div class="flex flex-col lg:flex-row gap-12">
+
+      <%# Form %>
       <div class="lg:w-1/2">
-        <div class="bg-gray-100 rounded-lg p-8 h-full">
+        <div class="bg-white rounded-2xl shadow-md p-8">
           <h2 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
-          <form id="contactForm" class="space-y-4">
-            <div>
-              <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-              <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+          <form id="contactForm" class="space-y-5" novalidate>
+
+            <div class="form-group">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+              <input type="text" id="name" name="name"
+                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                placeholder="Robert Stacey" required />
+              <p class="form-error text-red-500 text-xs mt-1 hidden">Please enter your name.</p>
             </div>
-            <div>
-              <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-              <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required>
+
+            <div class="form-group">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+              <input type="email" id="email" name="email"
+                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                placeholder="you@example.com" required />
+              <p class="form-error text-red-500 text-xs mt-1 hidden">Please enter a valid email.</p>
             </div>
-            <div>
-              <label for="message" class="block text-gray-700 mb-2">Your Message</label>
-              <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" required></textarea>
+
+            <div class="form-group">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Service Needed</label>
+              <select id="service" name="service"
+                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white">
+                <option value="">Select a service...</option>
+                <option>Air Cargo</option>
+                <option>Charter Flight</option>
+                <option>Technical / Construction</option>
+                <option>Other</option>
+              </select>
             </div>
-            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition">Send Message</button>
+
+            <div class="form-group">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+              <textarea id="message" name="message" rows="4"
+                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+                placeholder="Tell us about your needs..." required></textarea>
+              <p class="form-error text-red-500 text-xs mt-1 hidden">Please enter a message.</p>
+            </div>
+
+            <button type="submit" id="submitBtn"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+
+            <div id="formSuccess" class="hidden bg-green-50 border border-green-200 text-green-700 rounded-xl px-4 py-3 text-sm flex items-center gap-2">
+              <i class="fas fa-check-circle"></i>
+              <span>Message sent! We'll get back to you shortly.</span>
+            </div>
+
           </form>
         </div>
       </div>
-      
-      <div class="lg:w-1/2">
-        <div class="bg-gray-100 rounded-lg p-8 h-full">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h2>
-          
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-800 mb-1">Our Location</h3>
-                <p class="text-gray-600">Private Hangars, Kenneth Kaunda International Airport, Lusaka, Zambia</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
-                <i class="fas fa-phone-alt"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-800 mb-1">Call Us</h3>
-                <p class="text-gray-600">+260 965 291772</p>
-                <p class="text-gray-600">24/7 Operations Line: +260 977 123456</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="bg-blue-600 text-white p-3 rounded-full mr-4">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-800 mb-1">Email Us</h3>
-                <p class="text-gray-600">robert@ninerjuliet.com</p>
-                <p class="text-gray-600">operations@ninerjuliet.com</p>
-              </div>
-            </div>
-          </div>
+
+      <%# Map + quick call %>
+      <div class="lg:w-1/2 flex flex-col gap-6">
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden flex-1">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.7!2d28.4522!3d-15.3308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19408b0a0c5b9b1d%3A0x1a2b3c4d5e6f7a8b!2sKenneth%20Kaunda%20International%20Airport!5e0!3m2!1sen!2szm!4v1234567890"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            class="w-full h-72">
+          </iframe>
         </div>
+
+        <a href="tel:+260965291772"
+          class="group bg-blue-600 hover:bg-blue-700 text-white rounded-2xl p-6 flex items-center gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+            <i class="fas fa-phone-alt text-white text-xl"></i>
+          </div>
+          <div>
+            <p class="text-white/70 text-sm">Prefer to talk? Call us directly</p>
+            <p class="text-xl font-bold">+260 965 291 772</p>
+            <p class="text-white/60 text-xs">Available 24/7 for urgent requests</p>
+          </div>
+          <i class="fas fa-arrow-right ml-auto group-hover:translate-x-1 transition-transform"></i>
+        </a>
+
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      form.querySelectorAll('[required]').forEach(field => {
+        const err = field.closest('.form-group').querySelector('.form-error');
+        if (!field.value.trim() || (field.type === 'email' && !/\S+@\S+\.\S+/.test(field.value))) {
+          field.classList.add('border-red-400');
+          err && err.classList.remove('hidden');
+          valid = false;
+        } else {
+          field.classList.remove('border-red-400');
+          err && err.classList.add('hidden');
+        }
+      });
+
+      if (!valid) return;
+
+      const btn = document.getElementById('submitBtn');
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        form.reset();
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        btn.disabled = false;
+        document.getElementById('formSuccess').classList.remove('hidden');
+        setTimeout(() => document.getElementById('formSuccess').classList.add('hidden'), 5000);
+      }, 1200);
+    });
+
+    form.querySelectorAll('[required]').forEach(field => {
+      field.addEventListener('input', () => {
+        field.classList.remove('border-red-400');
+        const err = field.closest('.form-group')?.querySelector('.form-error');
+        err && err.classList.add('hidden');
+      });
+    });
+  }
+</script>
