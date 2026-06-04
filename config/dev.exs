@@ -15,7 +15,7 @@ config :niner_juliet_aviation, NinerJulietAviationWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: System.get_env("SECRET_KEY_BASE") || raise("missing SECRET_KEY_BASE env var"),
+  secret_key_base: "H7dk/hlARwcXkeuQZpR6fqjyeQIRJ3T2CysSFYwn5SmOKk9YFkyObQqG7P7ZmWY8",
   watchers: [
     esbuild:
       {Esbuild, :install_and_run, [:niner_juliet_aviation, ~w(--sourcemap=inline --watch)]},
