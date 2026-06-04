@@ -11,44 +11,51 @@ h1, h2, h3, h4 {
 }
 
 /* ── Hero backgrounds ── */
+.hero-bg,
+.about-hero-bg,
+.services-hero-bg,
+.fleet-hero-bg,
+.contact-hero-bg {
+  background-size: cover;
+  background-position: center;
+  /* fixed attachment breaks on iOS — use scroll */
+  background-attachment: scroll;
+}
+
 .hero-bg {
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1470&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 .about-hero-bg {
   background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
     url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=1470&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 .services-hero-bg {
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url('https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=1470&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 .fleet-hero-bg {
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url('https://images.unsplash.com/photo-1583161178114-e3b6e0b5e3d1?auto=format&fit=crop&w=1470&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
 }
 
 .contact-hero-bg {
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
     url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1470&q=80');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+}
+
+/* Use parallax only on non-touch devices */
+@media (hover: hover) {
+  .hero-bg,
+  .about-hero-bg,
+  .services-hero-bg,
+  .fleet-hero-bg,
+  .contact-hero-bg {
+    background-attachment: fixed;
+  }
 }
 
 /* ── Hero entrance animations ── */
@@ -106,6 +113,16 @@ h1, h2, h3, h4 {
   opacity: 0;
 }
 
+/* On touch devices always show fleet overlay so specs are visible */
+@media (hover: none) {
+  .fleet-overlay {
+    opacity: 1;
+  }
+  .fleet-card .absolute.bottom-0 {
+    display: none;
+  }
+}
+
 /* ── Timeline ── */
 .timeline-item {
   opacity: 0;
@@ -116,6 +133,23 @@ h1, h2, h3, h4 {
 .timeline-item.revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Mobile timeline — single column, left-aligned */
+@media (max-width: 767px) {
+  .timeline-item {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  .timeline-item > div:first-child:empty,
+  .timeline-item > div:last-child:empty {
+    display: none !important;
+  }
+  .timeline-dot {
+    margin-top: 0.2rem;
+    shrink: 0;
+  }
 }
 
 .timeline-dot {
@@ -134,4 +168,38 @@ h1, h2, h3, h4 {
 
 .mobile-menu {
   transition: all 0.3s ease;
+}
+
+/* ── Mobile global tweaks ── */
+@media (max-width: 639px) {
+  /* Reduce hero section height so CTA is visible without scrolling */
+  .hero-bg {
+    min-height: 100svh;
+  }
+
+  /* Prevent horizontal overflow */
+  section, .container {
+    overflow-x: hidden;
+  }
+
+  /* Tighten section vertical padding on mobile */
+  .py-20 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .py-16 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  /* Stats bar — stack nicely */
+  .stat-item {
+    padding: 0.5rem;
+  }
+
+  /* Service cards — full width, no hover lift on touch */
+  .service-card:hover {
+    transform: none;
+  }
 }

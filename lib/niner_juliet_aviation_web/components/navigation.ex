@@ -8,11 +8,11 @@ defmodule NinerJulietAviationWeb.Navigation do
         <div class="flex justify-between items-center">
           <div class="flex items-center">
             <a href="/" class="flex items-center">
-              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">9JL</div>
+              <img src="/images/99logo.png" alt="9JL Logo" class="w-16 h-16 object-contain mr-3 drop-shadow-md" />
               <span class="text-xl font-bold text-gray-800">Niner Juliet Logistics</span>
             </a>
           </div>
-          
+
           <div class="hidden md:flex items-center space-x-8">
             <a href="/" class="nav-link text-gray-700 hover:text-blue-600 transition">Home</a>
             <a href="/about" class="nav-link text-gray-700 hover:text-blue-600 transition">About</a>
@@ -23,20 +23,20 @@ defmodule NinerJulietAviationWeb.Navigation do
               <i class="fas fa-phone mr-2"></i> Call Us
             </a>
           </div>
-          
-          <button id="mobileMenuButton" class="md:hidden text-gray-700 focus:outline-none" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+
+          <button id="mobileMenuButton" class="md:hidden text-gray-700 focus:outline-none">
             <i class="fas fa-bars text-2xl"></i>
           </button>
         </div>
       </div>
-      
+
       <div id="mobileMenu" class="mobile-menu hidden md:hidden bg-white w-full absolute left-0 shadow-lg">
         <div class="container mx-auto px-4 py-3">
-          <a href="/" class="block py-2 text-gray-700 hover:text-blue-600" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Home</a>
-          <a href="/about" class="block py-2 text-gray-700 hover:text-blue-600" onclick="document.getElementById('mobileMenu').classList.add('hidden')">About</a>
-          <a href="/services" class="block py-2 text-gray-700 hover:text-blue-600" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Services</a>
-          <a href="/fleet" class="block py-2 text-gray-700 hover:text-blue-600" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Our Fleet</a>
-          <a href="/contact" class="block py-2 text-gray-700 hover:text-blue-600" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Contact</a>
+          <a href="/" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+          <a href="/about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+          <a href="/services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+          <a href="/fleet" class="block py-2 text-gray-700 hover:text-blue-600">Our Fleet</a>
+          <a href="/contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
           <a href="/call" class="block bg-blue-600 text-white py-2 px-4 rounded-full text-center my-2">
             <i class="fas fa-phone mr-2"></i> Call Us
           </a>

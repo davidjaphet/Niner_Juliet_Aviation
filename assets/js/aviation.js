@@ -19,6 +19,9 @@ function initializeMobileMenu() {
     e.preventDefault();
     menu.classList.toggle('hidden');
   });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => menu.classList.add('hidden'));
+  });
 }
 
 function initializeSmoothScrolling() {
